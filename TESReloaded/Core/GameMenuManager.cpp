@@ -39,10 +39,7 @@ void GameMenuManager::Render() {
 
 	ffi::MenuStruct* MenuSettings = &TheSettingManager->Config->Menu;
 
-	if (InterfaceManager->IsActive(Menu::MenuType::kMenuType_Main)) {
-		ffi::WriteVersionString(TheRenderManager->width, TheRenderManager->height, (const int8_t*)PluginVersion::VersionString);
-	}
-	else {
+	if (!InterfaceManager->IsActive(Menu::MenuType::kMenuType_Main)) {
 		if (Global->OnKeyDown(MenuSettings->KeyEnable)) {
 			isEnabled = !isEnabled;
 		}
