@@ -40,9 +40,6 @@ xcopy "%PROJECT%\Release\%PROJECT%.pdb" "build\%PROJECT%\%FOLDER%\Plugins\" /y /
 xcopy ".\Configurator\target\i686-pc-windows-msvc\release\Configurator.dll" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
 xcopy ".\Configurator\target\i686-pc-windows-msvc\release\Configurator.pdb" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
 
-@REM Copy config
-xcopy "Extra\%PROJECT%.dll.config" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
-
 @REM Copy Shaders
 robocopy /mir .\Extra\Shaders\%PROJECT%\ .\build\%PROJECT%\Shaders\%PROJECT%\
 
