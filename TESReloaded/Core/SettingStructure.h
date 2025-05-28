@@ -56,7 +56,7 @@ struct DevelopStruct {
 
 struct CullingEngine {
   bool EnableMainCulling;
-  bool EnableReflectionCulling;
+  bool EnableRelfectionCulling;
   float CullMinSize;
   float CullReflectionMinSize;
 };

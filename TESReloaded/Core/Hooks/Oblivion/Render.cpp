@@ -169,7 +169,7 @@ void __fastcall WaterCullingProcessHook(TESWaterCullingProcess* This, UInt32 edx
 	void* VFT = *(void**)Object;
 	bool culled = false;
 	if ((VFT == Pointers::VirtualTables::NiNode || VFT == Pointers::VirtualTables::BSFadeNode || VFT == Pointers::VirtualTables::BSFaceGenNiNode  && (Object->m_flags & NiAVObject::kFlag_AppCulled) == NiAVObject::kFlag_AppCulled)
-		 && TheSettingManager->Config->Culling.EnableReflectionCulling) {
+		 && TheSettingManager->Config->Culling.EnableRelfectionCulling) {
 		NiBound* Bound = Object->GetWorldBound();
 		TheRenderManager->GetScreenSpaceBoundSize(&BoundSize, Bound);
 		BoundBox = (BoundSize.x * 100.f) * (BoundSize.y * 100.0f);

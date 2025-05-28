@@ -395,7 +395,7 @@ impl Default for ShadowsInteriorStruct{
 #[allow(non_snake_case)]
 pub struct CullingEngine{
     EnableMainCulling: bool,
-    EnableReflectionCulling : bool,
+    EnableRelfectionCulling : bool,
     CullMinSize : f32,
     CullReflectionMinSize : f32
 }
@@ -404,7 +404,7 @@ impl Default for CullingEngine{
     fn default() -> Self {
         CullingEngine {
             EnableMainCulling : true,
-            EnableReflectionCulling : true,
+            EnableRelfectionCulling : true,
             CullMinSize : 10.0,
             CullReflectionMinSize : 100.0
         }

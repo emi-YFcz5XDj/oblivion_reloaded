@@ -138,7 +138,7 @@ void __fastcall RenderReflectionsHook(WaterManager* This, UInt32 edx, NiCamera* 
 
     }
     
-    boh = (BSRenderedTexture**) 0x011C7AD4; /*Reflections*/
+    boh = (BSRenderedTexture**) 0x011C7AD4; /*Relfections*/
     if (*boh  && TheSettingManager->Config->Develop.DebugMode && Global->OnKeyDown(0x17)) {
         D3DXSaveSurfaceToFileA(".\\Test\\011C7AD4.jpg", D3DXIFF_JPG, (*boh)->RenderedTexture->buffer->data->Surface, NULL, NULL);
 
