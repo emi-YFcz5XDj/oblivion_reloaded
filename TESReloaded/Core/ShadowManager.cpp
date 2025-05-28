@@ -994,7 +994,7 @@ float ShadowManager::lerp(float a, float b, float t) {
 bool ShadowManager::SetupGeometryRender(NiGeometry* Geo){
 	/*
 	 Somehow adding a geometry to a geometry group cause all sort of issues when then we call PackGeometryBuffers if reflections are disabled or some critical node is culled on reflection pass
-	 That call seems required only for BSFaceGenNodes and only when relfections are off for some reasons
+	 That call seems required only for BSFaceGenNodes and only when Reflections are off for some reasons
 	 */
 //	gen = true;
 	if (!Geo->geomData->BuffData) {
