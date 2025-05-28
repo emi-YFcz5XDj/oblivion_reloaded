@@ -11,7 +11,7 @@ crate-type = ["cdylib"]
 [dependencies]
 serde = { version = "*", features = ["derive"]}
 serde-deserialize-over = "*"
-toml = { path = "../../toml/crates/toml", features = ["preserve_order"] }
+toml = "*"
 libc = "*"
 memchr = "*"
 hex-serde-util = "*"
