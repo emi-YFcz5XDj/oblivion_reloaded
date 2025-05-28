@@ -79,7 +79,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>Exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>dxguid.lib;version.lib;$(SolutionDir)TESReloaded\Framework\Common\Lib\Nvidia\x86\nvapi.lib;$(SolutionDir)Configurator\target\release\Configurator.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dxguid.lib;version.lib;$(SolutionDir)TESReloaded\Framework\Common\Lib\Nvidia\x86\nvapi.lib;$(SolutionDir)Configurator\target\i686-pc-windows-msvc\release\Configurator.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <AssemblyIdentity>OblivionReloaded</AssemblyIdentity>
@@ -114,7 +114,7 @@
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>Exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>dxguid.lib;version.lib;$(SolutionDir)TESReloaded\Framework\Common\Lib\Nvidia\x86\nvapi.lib;$(SolutionDir)Configurator\target\release\Configurator.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dxguid.lib;version.lib;$(SolutionDir)TESReloaded\Framework\Common\Lib\Nvidia\x86\nvapi.lib;$(SolutionDir)Configurator\target\i686-pc-windows-msvc\release\Configurator.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <Manifest>

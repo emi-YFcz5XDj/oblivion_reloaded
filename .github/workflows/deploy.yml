@@ -16,17 +16,29 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
   VERSION: ${{github.ref_name}}
-  ARTEFACT_NAME: ${{inputs.projectname}}-${{github.ref_name}}
+  ARTIFACT_NAME: ${{inputs.projectname}}-${{github.ref_name}}
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2025
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Install rust nightly # TODO: switch to stable once vec_into_raw_parts and const_trait_impl become stable
+      run: |
+        rustup toolchain add nightly-x86_64-pc-windows-msvc
+        rustup default nightly-x86_64-pc-windows-msvc
+        rustup target add i686-pc-windows-msvc
+
+    - name: Build Configurator
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        cd Configurator
+        cargo build --target i686-pc-windows-msvc --profile release
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -42,7 +54,7 @@ jobs:
       uses: vimtor/action-zip@v1
       with:
         files: build/${{inputs.projectname}}/
-        dest: ${{env.ARTEFACT_NAME}}.zip
+        dest: ${{env.ARTIFACT_NAME}}.zip
 
     - name: Create Release
       uses: actions/create-release@v1
@@ -50,7 +62,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{env.ARTEFACT_NAME}}
+        release_name: ${{env.ARTIFACT_NAME}}
         tag_name: ${{env.VERSION}}
         # body_path: CHANGELOG.md #TODO: add changelog
       env:
@@ -62,6 +74,6 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{env.ARTEFACT_NAME}}.zip
-        asset_name: ${{env.ARTEFACT_NAME}}.zip
+        asset_path: ./${{env.ARTIFACT_NAME}}.zip
+        asset_name: ${{env.ARTIFACT_NAME}}.zip
         asset_content_type: application/zip

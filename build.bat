@@ -36,6 +36,10 @@ if "%PROJECT%" == "OblivionReloaded" (
 xcopy "%PROJECT%\Release\%PROJECT%.dll" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
 xcopy "%PROJECT%\Release\%PROJECT%.pdb" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
 
+@REM Copy Configurator dll & pdb
+xcopy ".\Configurator\target\i686-pc-windows-msvc\release\Configurator.dll" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
+xcopy ".\Configurator\target\i686-pc-windows-msvc\release\Configurator.pdb" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
+
 @REM Copy config
 xcopy "Extra\%PROJECT%.dll.config" "build\%PROJECT%\%FOLDER%\Plugins\" /y /d
 
