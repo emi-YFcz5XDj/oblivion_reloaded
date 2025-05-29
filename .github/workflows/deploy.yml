@@ -37,6 +37,7 @@ jobs:
     - name: Build Configurator
       run: |
         cd Configurator
+        $Env:RUSTFLAGS = "-C target-cpu=znver1"
         cargo build --target i686-pc-windows-msvc --profile release
 
     - name: Restore NuGet packages
